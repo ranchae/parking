@@ -7,9 +7,6 @@ import com.nhnacademy.parking.ParkingSpace;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -17,11 +14,14 @@ import static org.mockito.Mockito.when;
 class CarTest {
     Car car;
     CarNumberScanner carNumberScanner;
-    Parking parkingSpace;
+    Parking parking;
+    ParkingSpace parkingSpace;
 
     @BeforeEach
     void setUp() {
         carNumberScanner = mock(CarNumberScanner.class);
+        parkingSpace = mock(ParkingSpace.class);
+        parking = new Parking(parkingSpace);
     }
 
     @Test
@@ -32,7 +32,7 @@ class CarTest {
         //when
         when(carNumberScanner.scan()).thenReturn(car);
 
-        Car newCar= carNumberScanner.scan();
+        Car newCar = carNumberScanner.scan();
 
         //then
         assertThat(newCar).isEqualTo(car);
@@ -40,6 +40,17 @@ class CarTest {
 
     @Test
     void parkingSpace() {
-        Parking parking = new Parking("");
+        String parkingSpaceName = "A1";
+        Car car = new Car("라9357");
+        when(parkingSpace.getCarsNum()).thenReturn(1);
+
+        int result = parking.park(parkingSpaceName, car);
+
+        assertThat(result).isEqualTo(1);
+//        when(parkingSpace.park()).thenReturn(parkingSpace);
+//
+//        ParkingSpace parkingSpaceNumber = parkingSpace.park();
+//
+//        assertThat(parkingSpaceNumber).isEqualTo(parking);
     }
 }

@@ -1,19 +1,21 @@
 package com.nhnacademy.parking;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 public class ParkingSpace {
-    List<String> arrayList = new ArrayList<>();
-    List<Car> carList = new ArrayList<>();
 
-    public int getCarsNum() {
-        return 0;
-    }
+    HashMap<String, Car> carHashMap = new HashMap<>();
 
-    public void add(String parkingSpaceName, Car car) {
-        arrayList.add(parkingSpaceName);
-        carList.add(car);
+    public boolean inputCar(String space, Car myCar) {
+        carHashMap.put(space, myCar);
+        return true;
     }
 
 }
+
+//    public void add(String parkingSpaceName, Car car) {
+//        arrayList.add(parkingSpaceName);
+//        carList.add(car);
+//    }
+
+

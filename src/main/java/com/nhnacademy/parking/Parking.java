@@ -1,18 +1,10 @@
 package com.nhnacademy.parking;
 
-public class Parking {
-    private ParkingSpace parkingSpace;
+import java.util.HashMap;
+import java.util.Map;
 
-    public Parking(ParkingSpace parkingSpace) {
-        this.parkingSpace = parkingSpace;
-    }
+public class Parking() {
+    Map<String, Integer> Time = new HashMap<>();
 
-    public ParkingSpace getParkingSpace() {
-        return this.parkingSpace;
-    }
 
-    public int park(String parkingSpaceName, Car car) {
-        parkingSpace.add(parkingSpaceName, car);
-        return parkingSpace.getCarsNum();
-    }
 }

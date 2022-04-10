@@ -1,6 +1,9 @@
 package com.nhnacademy.parking;
 
 public class EntranceZone {
+    public static Car carOne;
+    public static Car carTwo;
+
     public static void main(String[] args) {
         EntranceZone entranceZone = new EntranceZone();
         entranceZone.multi();
@@ -57,4 +60,15 @@ public class EntranceZone {
         }
     }
 
+    public static class carOne implements Runnable {
+        @Override
+        public void run() {
+        }
+    }
+
+    public static class carTwo implements Runnable {
+        @Override
+        public void run() {
+        }
+    }
 }

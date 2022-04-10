@@ -57,4 +57,16 @@ public class ExitZone {
             }
         }
     }
+
+    public static class carOne implements Runnable {
+        @Override
+        public void run() {
+        }
+    }
+
+    public static class carFour implements Runnable {
+        @Override
+        public void run() {
+        }
+    }
 }

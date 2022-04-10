@@ -14,6 +14,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 class CarTest {
+
     Car car;
     CarNumberScanner carNumberScanner;
     ParkingSpace parkingSpace;
@@ -54,28 +55,25 @@ class CarTest {
     }
 
     @Test
-    @DisplayName("주차장에서 차가 나간다. 주차시간만큼 결제하지 않으면 나갈 수 없다. ")
+    @DisplayName("주차장에서 차가 나간다. 주차시간만큼 결제하지 않으면 나갈 수 없다.")
     void outCar() {
         Car car = new Car("라9357");
-        LocalTime outTime = LocalTime.now();
-        System.out.println("나간 시간 출력: " + outTime);
-
-        Money money = new Money(0);
-        int noMoney = 0;
-        if (money.equals(noMoney)) {
+        int money = 1000;
+        if (money == 0) {
             System.out.println("요금이 정산되지 않았습니다. 나갈 수 없습니다.");
+        } else {
+            LocalTime outTime = LocalTime.now();
+            System.out.println("주차장을 나갑니다.\n 나간시간: " + outTime);
         }
-
     }
 
     @Test
     @DisplayName("들어온 시간과 나간 시간을 이용하여 주차시간을 계산한다.")
     void checkTime() {
-
         TimeCheck timeCheck = new TimeCheck();
         LocalDateTime startTime = LocalDateTime.of(2022, 12, 20, 9, 10, 45);
         LocalDateTime endTime = LocalDateTime.of(2022, 12, 20, 9, 40, 30);
-        System.out.println("주차시간(단위:초) " + ChronoUnit.SECONDS.between(startTime, endTime) / 60);
+        System.out.println("주차시간(단위:초) " + ChronoUnit.SECONDS.between(startTime, endTime));
     }
 
     @Test
@@ -181,7 +179,7 @@ class CarTest {
     }
 
     @Test
-    @DisplayName("계산된 주차시간으로 요금을 지불한다._ 이틀을 넘겨 주차하는 경우")
+    @DisplayName("계산된 주차시간으로 요금을 지불한다._ 2일 연속으로 주차하는 경우")
     void pay_over2day() {
 
         //최초 30분

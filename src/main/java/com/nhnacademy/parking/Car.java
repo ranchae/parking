@@ -3,7 +3,6 @@ package com.nhnacademy.parking;
 import java.util.Objects;
 
 public class Car {
-
     private String carNumber;
 
     public Car(String carNumber) {
@@ -26,7 +25,5 @@ public class Car {
     public int hashCode() {
         return Objects.hash(carNumber);
     }
-
-
 
 }

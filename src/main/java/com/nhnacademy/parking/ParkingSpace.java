@@ -11,11 +11,10 @@ public class ParkingSpace {
         return true;
     }
 
-}
-
 //    public void add(String parkingSpaceName, Car car) {
 //        arrayList.add(parkingSpaceName);
 //        carList.add(car);
 //    }
+}
 
 

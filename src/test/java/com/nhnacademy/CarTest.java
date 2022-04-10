@@ -120,9 +120,13 @@ class CarTest {
             System.out.println((fee*17) + "원");
         } else if (10200L < stayTime & stayTime <= 10800L) {
             System.out.println((fee*18) + "원");
-        } else if (10800L < stayTime & stayTime <= 178560L) {
+        } else if (10800L < stayTime & stayTime <= 11400L) {
+            System.out.println((fee*19) + "원");
+        } else if (11400L < stayTime & stayTime <= 12000L) {
+            System.out.println((fee*20) + "원");
+        } else if (12000L < stayTime & stayTime <= 172800L) {
             System.out.println((fee = 10_000) + "원");
-        } else if (178560L < stayTime) {
+        } else if (172800L < stayTime) {
             System.out.println((fee = 20_000) + "원");
         }
     }
@@ -171,9 +175,13 @@ class CarTest {
             System.out.println((fee*17) + "원");
         } else if (10200L < stayTime & stayTime <= 10800L) {
             System.out.println((fee*18) + "원");
-        } else if (10800L < stayTime & stayTime <= 178560L) {
-            System.out.println((fee = 10000) + "원");
-        } else if (178560L < stayTime) {
+        } else if (10800L < stayTime & stayTime <= 11400L) {
+            System.out.println((fee*19) + "원");
+        } else if (11400L < stayTime & stayTime <= 12000L) {
+            System.out.println((fee*20) + "원");
+        } else if (12000L < stayTime & stayTime <= 172800L) {
+            System.out.println((fee = 10_000) + "원");
+        } else if (172800L < stayTime) {
             System.out.println((fee = 20_000) + "원");
         }
     }
@@ -222,9 +230,13 @@ class CarTest {
             System.out.println((fee*17) + "원");
         } else if (10200L < stayTime & stayTime <= 10800L) {
             System.out.println((fee*18) + "원");
-        } else if (10800L < stayTime & stayTime <= 178560L) {
-            System.out.println((fee = 10000) + "원");
-        } else if (178560L < stayTime) {
+        } else if (10800L < stayTime & stayTime <= 11400L) {
+            System.out.println((fee*19) + "원");
+        } else if (11400L < stayTime & stayTime <= 12000L) {
+            System.out.println((fee*20) + "원");
+        } else if (12000L < stayTime & stayTime <= 172800L) {
+            System.out.println((fee = 10_000) + "원");
+        } else if (172800L < stayTime) {
             System.out.println((fee = 20_000) + "원");
         }
     }
@@ -273,9 +285,13 @@ class CarTest {
             System.out.println((fee*17) + "원");
         } else if (10200L < stayTime & stayTime <= 10800L) {
             System.out.println((fee*18) + "원");
-        } else if (10800L < stayTime & stayTime <= 178560L) {
-            System.out.println((fee = 10000) + "원");
-        } else if (178560L < stayTime) {
+        } else if (10800L < stayTime & stayTime <= 11400L) {
+            System.out.println((fee*19) + "원");
+        } else if (11400L < stayTime & stayTime <= 12000L) {
+            System.out.println((fee*20) + "원");
+        } else if (12000L < stayTime & stayTime <= 172800L) {
+            System.out.println((fee = 10_000) + "원");
+        } else if (172800L < stayTime) {
             System.out.println((fee = 20_000) + "원");
         }
     }
@@ -324,9 +340,13 @@ class CarTest {
             System.out.println((fee*17) + "원");
         } else if (10200L < stayTime & stayTime <= 10800L) {
             System.out.println((fee*18) + "원");
-        } else if (10800L < stayTime & stayTime <= 178560L) {
-            System.out.println((fee = 10000) + "원");
-        } else if (178560L < stayTime) {
+        } else if (10800L < stayTime & stayTime <= 11400L) {
+            System.out.println((fee*19) + "원");
+        } else if (11400L < stayTime & stayTime <= 12000L) {
+            System.out.println((fee*20) + "원");
+        } else if (12000L < stayTime & stayTime <= 172800L) {
+            System.out.println((fee = 10_000) + "원");
+        } else if (172800L < stayTime) {
             System.out.println((fee = 20_000) + "원");
         }
     }
@@ -375,12 +395,300 @@ class CarTest {
             System.out.println((fee*17) + "원");
         } else if (10200L < stayTime & stayTime <= 10800L) {
             System.out.println((fee*18) + "원");
-        } else if (10800L < stayTime & stayTime <= 178560L) {
-            System.out.println((fee = 10000) + "원");
-        } else if (178560L < stayTime) {
+        } else if (10800L < stayTime & stayTime <= 11400L) {
+            System.out.println((fee*19) + "원");
+        } else if (11400L < stayTime & stayTime <= 12000L) {
+            System.out.println((fee*20) + "원");
+        } else if (12000L < stayTime & stayTime <= 172800L) {
+            System.out.println((fee = 10_000) + "원");
+        } else if (172800L < stayTime) {
             System.out.println((fee = 20_000) + "원");
         }
     }
 
+    @Test
+    @DisplayName("바뀐 요금표에서 최초 30분 주차는 무료이다.")
+    void pay_change() {
+        LocalDateTime startTime = LocalDateTime.of(2022, 5, 18, 12, 5, 1);
+        LocalDateTime endTime = LocalDateTime.of(2022, 5, 18, 12, 35, 1);
+        System.out.println("주차시간(단위:초) " + ChronoUnit.SECONDS.between(startTime, endTime));
 
+        int stayTime = (int) ChronoUnit.SECONDS.between(startTime, endTime);
+
+        int fee = 500;
+        if (stayTime <= 1800L) {
+            System.out.println(0 + "원");
+        } else if (1800L <= stayTime & stayTime <= 3600L) {
+            System.out.println((fee * 2) + "원");
+        } else if (3600L < stayTime & stayTime <= 4200L) {
+            System.out.println((fee * 3) + "원");
+        } else if (4200L < stayTime & stayTime <= 4800L) {
+            System.out.println((fee * 4) + "원");
+        } else if (4800L < stayTime & stayTime <= 5400L) {
+            System.out.println((fee * 5) + "원");
+        } else if (5400L < stayTime & stayTime <= 6000L) {
+            System.out.println((fee * 6) + "원");
+        } else if (6000L < stayTime & stayTime <= 6600L) {
+            System.out.println((fee * 7) + "원");
+        } else if (6600L < stayTime & stayTime <= 7200L) {
+            System.out.println((fee * 8) + "원");
+        } else if (7200L < stayTime & stayTime <= 7800L) {
+            System.out.println((fee * 9) + "원");
+        } else if (7800L < stayTime & stayTime <= 8400L) {
+            System.out.println((fee * 10) + "원");
+        } else if (8400L < stayTime & stayTime <= 9000L) {
+            System.out.println((fee * 11) + "원");
+        } else if (9000L < stayTime & stayTime <= 9600L) {
+            System.out.println((fee * 12) + "원");
+        } else if (9600L < stayTime & stayTime <= 10200L) {
+            System.out.println((fee * 13) + "원");
+        } else if (10200L < stayTime & stayTime <= 10800L) {
+            System.out.println((fee * 14) + "원");
+        } else if (10800L < stayTime & stayTime <= 11400L) {
+            System.out.println((fee * 15) + "원");
+        } else if (11400L < stayTime & stayTime <= 12000L) {
+            System.out.println((fee * 16) + "원");
+        } else if (12000L < stayTime & stayTime <= 12600L) {
+            System.out.println((fee * 17) + "원");
+        } else if (12600L < stayTime & stayTime <= 13200L) {
+            System.out.println((fee * 18) + "원");
+        } else if (13200L < stayTime & stayTime <= 13800L) {
+            System.out.println((fee * 19) + "원");
+        } else if (13800L < stayTime & stayTime <= 14400L) {
+            System.out.println((fee * 20) + "원");
+        } else if (14400L < stayTime & stayTime <= 15000L) {
+            System.out.println((fee * 21) + "원");
+        } else if (15000L < stayTime & stayTime <= 15600L) {
+            System.out.println((fee * 22) + "원");
+        } else if (15600L < stayTime & stayTime <= 16200L) {
+            System.out.println((fee * 23) + "원");
+        } else if (16200L < stayTime & stayTime <= 16800L) {
+            System.out.println((fee * 24) + "원");
+        } else if (16800L < stayTime & stayTime <= 17400L) {
+            System.out.println((fee * 25) + "원");
+        } else if (17400L < stayTime & stayTime <= 18000L) {
+            System.out.println((fee*26) + "원");
+        } else if (18000L < stayTime & stayTime <= 18600L) {
+            System.out.println((fee*27) + "원");
+        } else if (18600L < stayTime & stayTime <= 172800L) {
+            System.out.println((fee = 15_000) + "원");
+        } else if (172800 < stayTime) {
+            System.out.println((fee = 20_000) + "원");
+        }
+    }
+
+    @Test
+    @DisplayName("바뀐 요금표에서 30분에서 1시간 사이의 주차요금을 구한다.")
+    void pay_30to1hour() {
+        //최초 30분이후부터 1시간이내의 주차요금
+        LocalDateTime startTime = LocalDateTime.of(2022, 10, 15, 1, 5, 1);
+        LocalDateTime endTime = LocalDateTime.of(2022, 10, 15, 1, 55, 1);
+        System.out.println("주차시간(단위:초) " + ChronoUnit.SECONDS.between(startTime, endTime));
+
+        int stayTime = (int) ChronoUnit.SECONDS.between(startTime, endTime);
+
+        int fee = 500;
+        if (stayTime <= 1800L) {
+            System.out.println(0 + "원");
+        } else if (1800L <= stayTime & stayTime <= 3600L) {
+            System.out.println((fee * 2) + "원");
+        } else if (3600L < stayTime & stayTime <= 4200L) {
+            System.out.println((fee * 3) + "원");
+        } else if (4200L < stayTime & stayTime <= 4800L) {
+            System.out.println((fee * 4) + "원");
+        } else if (4800L < stayTime & stayTime <= 5400L) {
+            System.out.println((fee * 5) + "원");
+        } else if (5400L < stayTime & stayTime <= 6000L) {
+            System.out.println((fee * 6) + "원");
+        } else if (6000L < stayTime & stayTime <= 6600L) {
+            System.out.println((fee * 7) + "원");
+        } else if (6600L < stayTime & stayTime <= 7200L) {
+            System.out.println((fee * 8) + "원");
+        } else if (7200L < stayTime & stayTime <= 7800L) {
+            System.out.println((fee * 9) + "원");
+        } else if (7800L < stayTime & stayTime <= 8400L) {
+            System.out.println((fee * 10) + "원");
+        } else if (8400L < stayTime & stayTime <= 9000L) {
+            System.out.println((fee * 11) + "원");
+        } else if (9000L < stayTime & stayTime <= 9600L) {
+            System.out.println((fee * 12) + "원");
+        } else if (9600L < stayTime & stayTime <= 10200L) {
+            System.out.println((fee * 13) + "원");
+        } else if (10200L < stayTime & stayTime <= 10800L) {
+            System.out.println((fee * 14) + "원");
+        } else if (10800L < stayTime & stayTime <= 11400L) {
+            System.out.println((fee * 15) + "원");
+        } else if (11400L < stayTime & stayTime <= 12000L) {
+            System.out.println((fee * 16) + "원");
+        } else if (12000L < stayTime & stayTime <= 12600L) {
+            System.out.println((fee * 17) + "원");
+        } else if (12600L < stayTime & stayTime <= 13200L) {
+            System.out.println((fee * 18) + "원");
+        } else if (13200L < stayTime & stayTime <= 13800L) {
+            System.out.println((fee * 19) + "원");
+        } else if (13800L < stayTime & stayTime <= 14400L) {
+            System.out.println((fee * 20) + "원");
+        } else if (14400L < stayTime & stayTime <= 15000L) {
+            System.out.println((fee * 21) + "원");
+        } else if (15000L < stayTime & stayTime <= 15600L) {
+            System.out.println((fee * 22) + "원");
+        } else if (15600L < stayTime & stayTime <= 16200L) {
+            System.out.println((fee * 23) + "원");
+        } else if (16200L < stayTime & stayTime <= 16800L) {
+            System.out.println((fee * 24) + "원");
+        } else if (16800L < stayTime & stayTime <= 17400L) {
+            System.out.println((fee * 25) + "원");
+        } else if (17400L < stayTime & stayTime <= 18000L) {
+            System.out.println((fee*26) + "원");
+        } else if (18000L < stayTime & stayTime <= 18600L) {
+            System.out.println((fee*27) + "원");
+        } else if (18600L < stayTime & stayTime <= 172800L) {
+            System.out.println((fee = 15_000) + "원");
+        } else if (172800 < stayTime) {
+            System.out.println((fee = 20_000) + "원");
+        }
+    }
+
+    @Test
+    @DisplayName("바뀐 요금표: 일일주차 15_000원")
+    void pay_change1day() {
+        //최초 30분이후부터 1시간이내의 주차요금
+        LocalDateTime startTime = LocalDateTime.of(2022, 10, 15, 1, 5, 1);
+        LocalDateTime endTime = LocalDateTime.of(2022, 10, 15, 8, 55, 1);
+        System.out.println("주차시간(단위:초) " + ChronoUnit.SECONDS.between(startTime, endTime));
+
+        int stayTime = (int) ChronoUnit.SECONDS.between(startTime, endTime);
+
+        int fee = 500;
+        if (stayTime <= 1800L) {
+            System.out.println(0 + "원");
+        } else if (1800L <= stayTime & stayTime <= 3600L) {
+            System.out.println((fee*2) + "원");
+        } else if (3600L < stayTime & stayTime <= 4200L) {
+            System.out.println((fee*3) + "원");
+        } else if (4200L < stayTime & stayTime <= 4800L) {
+            System.out.println((fee*4) + "원");
+        } else if (4800L < stayTime & stayTime <= 5400L) {
+            System.out.println((fee*5) + "원");
+        } else if (5400L < stayTime & stayTime <= 6000L) {
+            System.out.println((fee*6) + "원");
+        } else if (6000L < stayTime & stayTime <= 6600L) {
+            System.out.println((fee*7) + "원");
+        } else if (6600L < stayTime & stayTime <= 7200L) {
+            System.out.println((fee*8) + "원");
+        } else if (7200L < stayTime & stayTime <= 7800L) {
+            System.out.println((fee*9) + "원");
+        } else if (7800L < stayTime & stayTime <= 8400L) {
+            System.out.println((fee*10) + "원");
+        } else if (8400L < stayTime & stayTime <= 9000L) {
+            System.out.println((fee*11) + "원");
+        } else if (9000L < stayTime & stayTime <= 9600L) {
+            System.out.println((fee*12) + "원");
+        } else if (9600L < stayTime & stayTime <= 10200L) {
+            System.out.println((fee*13) + "원");
+        } else if (10200L < stayTime & stayTime <= 10800L) {
+            System.out.println((fee*14) + "원");
+        } else if (10800L < stayTime & stayTime <= 11400L) {
+            System.out.println((fee*15) + "원");
+        } else if (11400L < stayTime & stayTime <= 12000L) {
+            System.out.println((fee*16) + "원");
+        } else if (12000L < stayTime & stayTime <= 12600L) {
+            System.out.println((fee*17) + "원");
+        } else if (12600L < stayTime & stayTime <= 13200L) {
+            System.out.println((fee*18) + "원");
+        } else if (13200L < stayTime & stayTime <= 13800L) {
+            System.out.println((fee*19) + "원");
+        } else if (13800L < stayTime & stayTime <= 14400L) {
+            System.out.println((fee*20) + "원");
+        } else if (14400L < stayTime & stayTime <= 15000L) {
+            System.out.println((fee*21) + "원");
+        } else if (15000L < stayTime & stayTime <= 15600L) {
+            System.out.println((fee*22) + "원");
+        } else if (15600L < stayTime & stayTime <= 16200L) {
+            System.out.println((fee*23) + "원");
+        } else if (16200L < stayTime & stayTime <= 16800L) {
+            System.out.println((fee*24) + "원");
+        } else if (16800L < stayTime & stayTime <= 17400L) {
+            System.out.println((fee*25) + "원");
+        } else if (17400L < stayTime & stayTime <= 18000L) {
+            System.out.println((fee*26) + "원");
+        } else if (18000L < stayTime & stayTime <= 18600L) {
+            System.out.println((fee*27) + "원");
+        } else if (18600L < stayTime & stayTime <= 172800L) {
+            System.out.println((fee = 15_000) + "원");
+        } else if (172800 < stayTime) {
+            System.out.println((fee = 20_000) + "원");
+        }
+    }
+
+    @Test
+    @DisplayName("바뀐 요금표: 2일연속주차 20_000원")
+    void pay_2day() {
+        LocalDateTime startTime = LocalDateTime.of(2022, 10, 15, 1, 5, 1);
+        LocalDateTime endTime = LocalDateTime.of(2022, 10, 17, 8, 55, 1);
+        System.out.println("주차시간(단위:초) " + ChronoUnit.SECONDS.between(startTime, endTime));
+
+        int stayTime = (int) ChronoUnit.SECONDS.between(startTime, endTime);
+
+        int fee = 500;
+        if (stayTime <= 1800L) {
+            System.out.println(0 + "원");
+        } else if (1800L <= stayTime & stayTime <= 3600L) {
+            System.out.println((fee*2) + "원");
+        } else if (3600L < stayTime & stayTime <= 4200L) {
+            System.out.println((fee*3) + "원");
+        } else if (4200L < stayTime & stayTime <= 4800L) {
+            System.out.println((fee*4) + "원");
+        } else if (4800L < stayTime & stayTime <= 5400L) {
+            System.out.println((fee*5) + "원");
+        } else if (5400L < stayTime & stayTime <= 6000L) {
+            System.out.println((fee*6) + "원");
+        } else if (6000L < stayTime & stayTime <= 6600L) {
+            System.out.println((fee*7) + "원");
+        } else if (6600L < stayTime & stayTime <= 7200L) {
+            System.out.println((fee*8) + "원");
+        } else if (7200L < stayTime & stayTime <= 7800L) {
+            System.out.println((fee*9) + "원");
+        } else if (7800L < stayTime & stayTime <= 8400L) {
+            System.out.println((fee*10) + "원");
+        } else if (8400L < stayTime & stayTime <= 9000L) {
+            System.out.println((fee*11) + "원");
+        } else if (9000L < stayTime & stayTime <= 9600L) {
+            System.out.println((fee*12) + "원");
+        } else if (9600L < stayTime & stayTime <= 10200L) {
+            System.out.println((fee*13) + "원");
+        } else if (10200L < stayTime & stayTime <= 10800L) {
+            System.out.println((fee*14) + "원");
+        } else if (10800L < stayTime & stayTime <= 11400L) {
+            System.out.println((fee*15) + "원");
+        } else if (11400L < stayTime & stayTime <= 12000L) {
+            System.out.println((fee*16) + "원");
+        } else if (12000L < stayTime & stayTime <= 12600L) {
+            System.out.println((fee*17) + "원");
+        } else if (12600L < stayTime & stayTime <= 13200L) {
+            System.out.println((fee*18) + "원");
+        } else if (13200L < stayTime & stayTime <= 13800L) {
+            System.out.println((fee*19) + "원");
+        } else if (13800L < stayTime & stayTime <= 14400L) {
+            System.out.println((fee*20) + "원");
+        } else if (14400L < stayTime & stayTime <= 15000L) {
+            System.out.println((fee*21) + "원");
+        } else if (15000L < stayTime & stayTime <= 15600L) {
+            System.out.println((fee*22) + "원");
+        } else if (15600L < stayTime & stayTime <= 16200L) {
+            System.out.println((fee*23) + "원");
+        } else if (16200L < stayTime & stayTime <= 16800L) {
+            System.out.println((fee*24) + "원");
+        } else if (16800L < stayTime & stayTime <= 17400L) {
+            System.out.println((fee*25) + "원");
+        } else if (17400L < stayTime & stayTime <= 18000L) {
+            System.out.println((fee*26) + "원");
+        } else if (18000L < stayTime & stayTime <= 18600L) {
+            System.out.println((fee*27) + "원");
+        } else if (18600L < stayTime & stayTime <= 172800L) {
+            System.out.println((fee = 15_000) + "원");
+        } else if (172800 < stayTime) {
+            System.out.println((fee = 20_000) + "원");
+        }
+    }
 }

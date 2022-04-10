@@ -9,6 +9,7 @@ public class Zone {
         entranceZone.multi();
         ExitZone exitZone = new ExitZone();
         exitZone.multi();
+
         carOne = new Car("가1111");
         carTwo = new Car("나2222");
     }
@@ -23,7 +24,7 @@ public class Zone {
         Thread exitTwo = new Thread(new ExitZone.ExitTwo());
         exitOne.start();
         exitTwo.start();
-
+    }
 //        Thread carEntrance1 = new Thread(new EntranceOne());
 //        Thread carEntrance2 = new Thread(new EntranceTwo());
 //        carEntrance1.start();
@@ -33,7 +34,6 @@ public class Zone {
 //        Thread carExit2 = new Thread(new ExitTwo());
 //        carExit1.start();
 //        carExit2.start();
-    }
 
     class EntranceOne implements Runnable {
         @Override
